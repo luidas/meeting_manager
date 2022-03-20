@@ -1,0 +1,34 @@
+[
+  {
+    "responsiblePerson": "Jonas",
+    "endDate": "2022-02-01",
+    "name": "meetas1",
+    "description": "Jono Java meetas",
+    "category": "SHORT",
+    "type": "LIVE",
+    "attendeeList": [
+      {
+        "attendingTo": "2022-02-01",
+        "name": "Liudas",
+        "attendingFrom": "2022-01-01"
+      }
+    ],
+    "startDate": "2022-01-01"
+  },
+  {
+    "responsiblePerson": "Liudas",
+    "name": "meetas2",
+    "attendeeList": [
+      {
+        "attendingTo": "2022-02-01",
+        "name": "Liudas",
+        "attendingFrom": "2022-01-01"
+      },
+      {
+        "attendingTo": "2022-dfgdfsgdsf-01",
+        "name": "fgsdz",
+        "attendingFrom": "2022-gdfs-01"
+      }
+    ]
+  }
+]
