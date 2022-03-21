@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meeting manager</title>
+</head>
+<body>
+<h1>Meeting List</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Responsible Person</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Type</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Attendees</th>
+    </tr>
+    <tr th:each="meeting : ${meetings}">
+        <td th:text="${meeting.name}"></td>
+        <td th:text="${meeting.responsiblePerson}"></td>
+        <td th:text="${meeting.description}"></td>
+        <td th:text="${meeting.category}"></td>
+        <td th:text="${meeting.type}"></td>
+        <td th:text="${meeting.startDate}"></td>
+        <td th:text="${meeting.endDate}"></td>
+        <td th:text="${meeting.attendeeList.toString()}"></td>
+    </tr>
+</table>
+</body>
+</html>

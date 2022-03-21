@@ -10,6 +10,8 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Storage {
 
@@ -25,9 +27,6 @@ public class Storage {
                 "/storage.json"));
     }
 
-//    public JSONArray getJson() {
-//        return json;
-//    }
 
     public Object saveObject(Object object) throws IOException,
             ParseException {
@@ -42,18 +41,15 @@ public class Storage {
         writeJsonToFile();
     }
 
-    public Object findByField(String fieldName, String fieldValue,
-                              Class objectClass) throws ClassNotFoundException {
-        JSONObject objectToReturn = null;
-        for (Object object : json) {
-            JSONObject objectJson = (JSONObject) object;
-            if (objectJson.get(fieldName).equals(fieldValue)) {
-                objectToReturn = objectJson;
-            }
+    public List<Object> findAll(Class objectClass) {
+        List<Object> outputList = new ArrayList<>();
+        for (Object jsonObject : json) {
+            outputList.add(convertJsonToObject((JSONObject) jsonObject,
+                    objectClass));
         }
-        return objectToReturn == null ? null :
-                convertJsonToObject(objectToReturn, objectClass);
+        return outputList;
     }
+
 
     public void writeJsonToFile() throws IOException {
         FileWriter file = new FileWriter("src/main/resources/storage.json");
@@ -61,7 +57,7 @@ public class Storage {
         file.close();
     }
 
-    public Object convertJsonToObject(JSONObject json, Class objectClass) throws ClassNotFoundException {
+    public Object convertJsonToObject(JSONObject json, Class objectClass) {
         return new Gson().fromJson(json.toJSONString(),
                 objectClass);
     }

@@ -2,14 +2,6 @@ package com.meeting_manager.model;
 
 import java.util.List;
 
-enum Category {
-    CODEMONKEY, HUB, SHORT, TEAMBUILDING
-}
-
-enum Type {
-    LIVE, INPERSON
-}
-
 
 public class Meeting {
 
@@ -33,6 +25,13 @@ public class Meeting {
         this.startDate = startDate;
         this.endDate = endDate;
         this.attendeeList = attendeeList;
+    }
+
+    public boolean hasEmptyFields() {
+        return this.name == null || this.responsiblePerson == null ||
+                this.description == null || this.category == null ||
+                this.type == null || this.startDate == null ||
+                this.endDate == null || this.attendeeList == null;
     }
 
     public String getName() {
@@ -97,5 +96,19 @@ public class Meeting {
 
     public void setAttendeeList(List<Attendee> attendeeList) {
         this.attendeeList = attendeeList;
+    }
+
+    @Override
+    public String toString() {
+        return "Meeting{" +
+                "name='" + name + '\'' +
+                ", responsiblePerson='" + responsiblePerson + '\'' +
+                ", description='" + description + '\'' +
+                ", category=" + category +
+                ", type=" + type +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", attendeeList=" + attendeeList +
+                '}';
     }
 }

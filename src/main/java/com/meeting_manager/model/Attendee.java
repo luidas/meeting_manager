@@ -34,4 +34,13 @@ public class Attendee {
     public void setAttendingTo(String attendingTo) {
         this.attendingTo = attendingTo;
     }
+
+    @Override
+    public String toString() {
+        return "Attendee: " +
+                "name: '" + name + '\'' +
+                ", attendingFrom: '" + attendingFrom + '\'' +
+                ", attendingTo: '" + attendingTo + '\'' +
+                '}';
+    }
 }
